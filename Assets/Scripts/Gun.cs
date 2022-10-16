@@ -34,6 +34,7 @@ public class Gun : MonoBehaviour
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
             GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            impactGO.GetComponent<ParticleSystem>().Play();
             Destroy(impactGO, 2f); 
         }
     }
